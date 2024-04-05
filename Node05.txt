@@ -1,0 +1,48 @@
+ 동기는 순서대로
+ 비동기는 기능이 끝나는순서대로 작동되며
+ 비동기의 순서를 맞춰주기 위해 값을 받고 작동하게 한다.
+ 
+ 
+ 
+ 
+ 
+ 
+ pp.get("/async", async (req, res) => {
+  //함수안에 비동기로 연동하는 함수가 있으면 부모자리에 async를 적어준다
+  console.log("1111 연동전 async");
+  con = await connect(); //그 비동기함수를 기다리게 함(데이터를 가져올때까지)
+ 
+ return new Promise((resolve) => {
+    //비동기 연결시 값을 받아오는 promise
+
+const router = require("./src/routers/router")(app)
+//두번재 괄호는 해당 변수를 같이 보낼때 사용.
+
+oracledb.outFormat = oracledb.OBJECT; //키,밸류 형식으로 표 설정
+
+//app에서 app이라는 변수를 넘겨주었기 때문에 해당 변수를 받아주고
+module.exports = (app) => {
+  const memberRouter = require("./member/member_router");
+  app.use("/member", memberRouter);
+
+  const router = require("express").Router();
+
+  router.get("/", (req, res) => {
+    res.render("index");
+  });
+
+  return router;
+};
+
+
+//비동기 async, awiat. 연결된 함수들이 있는 페이지는 전부 넣어줘야함
+//서비스쪽에서는 생략가능
+
+
+name :
+<a href="/member/member_view/<%= member.ID %>"> <%= member.NAME %><br /> </a>
+&nbsp; / &nbsp;
+<a href="/member/member_view/?id<%= member.ID %>">
+  <!--중간 ?id는 생략 가능 >> 둘중 하나로 쓰면 됨-->
+
+

@@ -1,0 +1,66 @@
+npm install > 기존의 package.json 파일을 복붙하고 설치파일 가져올때 인스톨만 써도 그대로 설치가 됨
+npm list > 설치 리스트 보기
+
+
+module.exports = DBMember 
+//다른페이지에서 require로 가져올수 있게 내보낸다.
+
+const DBMember = require("./DB/memberDAO");
+//해당 파일경로에서 내보낸 파일을 가져온다
+
+
+ "scripts": {
+    "start": "npx supervisor app.js"
+  },
+  매번 실행할때 npx supervisor app 이라고 쓰던걸 
+  package.json 파일에 스크립트를 넣어주면
+  npm start 만 쓰고 실행가능
+  나중에 실행파일이 달라질 경우 app에 해당하는 파일 이름만 바꿔주면 된다
+
+~~라우터 사용법~~
+
+  const router = ex.Router();
+app.use("/", router)
+
+router.get("/",(req,res)=>{
+    console.log(DBMember)
+    res.render("index");
+})
+
+const router2 = ex.Router();
+app.use("/member", router2)
+
+router2.get("/list",(req,res)=>{
+    console.log("router_M 연결")
+    res.send("member 목록을 보여줍니다");
+})
+
+
+/*이부분 윗쪽 라우터로 대체
+app.get("/", (req, res)=>{
+    res.render("index");
+})
+*/
+~~~~~~~~~~
+
+//const router = ex.Router();
+이제 메인파일 아닌 라우터파일에서 라우터를 부른다.
+
+
+module.exports = {index:index, test1, t2:test2};
+//중괄호로 묶으면 여러개를 한번에 보낼수 있지만, 키와 밸류로 묶어야 한다.
+//할당 변수와 보내는 변수의 이름이 같으면 ㅁ:ㅁ를 생략해서 ㅁ으로만 적을 수 있다
+
+ /* 이렇게 쓰면 test1 파일이 필요하지 않다
+    let msg = `<script>
+        alert('성공');
+        lcation,href="/test2";
+        </script>`
+        res.send(msg);
+        */
+
+
+       res.redirect("/") 
+      //서버안에서 서버끼리 요청하는 리다이렉트
+      //render와 send는 사용자에게 보내는 값
+      //redirect는 서버안에서 자기자신에게 해당 경로를 호출 

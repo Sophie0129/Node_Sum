@@ -1,0 +1,24 @@
+npm install bcrypt --save ( 암호화에 필요함)
+
+postman >>로컬 호스트의 값이 그대로 들어옴
+
+
+/*const changePwd = bcrypt.hash(pwd, 10); //hash 비동기
+console.log(changePwd);
+changePwd.then(res => console.log(res))
+*/
+const changePwd = bcrypt.hashSync(pwd, 10); //hashSync 동기
+//괄호 두번째의 숫자가 높을수록 암호화가 복잡해진다.
+//숫자가 높을수록 로딩시간이 길다
+console.log(changePwd);
+const result = bcrypt.compareSync(pwd, changePwd) //사용자값, 데이터값 순
+console.log(result); //둘이 같아서 true
+
+
+compare >> 암호화한것 비교해서 같은지 볼때 쓴다
+
+fetch : 기본 제공해주는 기능
+ajax : jquery
+axos
+
+dirname > 해당파일이 있는 폴더까지 경로 그냥 . 으로 써도 상관없다.
